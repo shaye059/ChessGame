@@ -51,9 +51,9 @@ public class GameView {
 		        label.setVerticalAlignment(JLabel.CENTER);
 				
 				if ((row+column)%2 == 0) {
-					label.setIcon(new ImageIcon(getClass().getResource("brown_square.png")));
+					label.setIcon(new ImageIcon(getClass().getResource("img/brown_square.png")));
 				}else {
-					label.setIcon(new ImageIcon(getClass().getResource("pale_square.png")));
+					label.setIcon(new ImageIcon(getClass().getResource("img/pale_square.png")));
 				}
 				list_of_labels[row*8 +column] = label;
 				frame.getContentPane().add(list_of_labels[row*8 +column]);
