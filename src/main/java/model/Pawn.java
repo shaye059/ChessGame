@@ -11,14 +11,12 @@ import org.javatuples.Pair;
  */
 public class Pawn extends Piece{
 
-	/**
-	 * 
-	 */
-	public Pawn(Pair<Integer,Integer> initial_position, String colour) {
-		super(initial_position, colour);
+	public Pawn(String colour) {
+		super(colour);
+		super.setPieceName("Pawn");
 	}
 	
-	private void getNewMoves() {
+	public void getNewMoves() {
 		
 	}
 
