@@ -16,7 +16,7 @@ public class Pawn extends Piece{
 		super.setPieceName("Pawn");
 	}
 	
-	public void getNewMoves() {
+	public void getNewMoves(int row, int column) {
 		
 	}
 

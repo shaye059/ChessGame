@@ -90,3 +90,10 @@ public class Board {
 		System.out.println(Arrays.deepToString(game_board.getBoard()));
 	}
 }
+
+
+/* Make an array to store a list of squares with pieces of one color on them.
+ * Each turn, check that there is still at least one possible move left. If
+ * there is not then that means the game has ended.
+ * 
+ */

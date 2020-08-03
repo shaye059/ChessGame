@@ -3,6 +3,7 @@
  */
 package controller;
 
+import View.GameView;
 import model.Board;
 
 /**
@@ -10,14 +11,17 @@ import model.Board;
  *
  */
 public class Controller {
+	
+	public Controller() {
+		Board game_board = new Board();
+		GameView board_view = new GameView(game_board);
+	}
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		Board game_board = new Board();
-		
-
+		new Controller();
 	}
 
 }

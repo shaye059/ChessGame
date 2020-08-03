@@ -16,7 +16,7 @@ public class Rook extends Piece{
 		super.setPieceName("Rook");
 	}
 	
-	public void getNewMoves() {
+	public void getNewMoves(int row, int column) {
 		
 	}
 

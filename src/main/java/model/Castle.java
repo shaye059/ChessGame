@@ -10,7 +10,7 @@ public class Castle extends Piece {
 		super.setPieceName("Castle");
 	}
 	
-	public void getNewMoves() {
+	public void getNewMoves(int row, int column) {
 		
 	}
 }

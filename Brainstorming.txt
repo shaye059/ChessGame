@@ -1,0 +1,5 @@
+1) Get possible move for each piece 
+
+Brainstorming:
+
+All pieces update their moves at the end of every turn. The king updates its moves at the start of the turn as well as the end. Detecting if an opponents peice can be taken will be done elsewhere.

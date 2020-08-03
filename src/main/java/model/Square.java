@@ -68,7 +68,8 @@ public class Square {
 
 class SpaceOccupiedException extends Exception {
 	   /**
-	 * Thrown when a piece tries to occupy a space that is already taken.
+	 * Thrown when a piece tries to occupy a space that is already taken. This should never actually be thrown
+	 * but is included for debugging.
 	 */
 	private static final long serialVersionUID = 1L;
 	Pair space;

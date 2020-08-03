@@ -23,15 +23,15 @@ public class Piece {
 	}
 	
 	//Methods
-	public Pair<Integer,Integer>[] getPossibleMoves(Board current_board){
+	public Pair<Integer,Integer>[] getPossibleMoves(Board current_board, int row, int column){
 		if(was_moved == true) {
-			getNewMoves();
+			getNewMoves(row, column);
 			was_moved = false;
 		}
 		return possible_moves;
 	}
 	
-	public void getNewMoves() {
+	public void getNewMoves(int row, int column) {
 	}
 	
 	public String getColour() {

@@ -30,6 +30,8 @@ public class GameView {
     private Board playing_board;
     private JPanel[][] list_of_labels;
     
+    
+    // Initiates a view of the game board based on the model
     public GameView(Board playing_board) {
     	frame.setBounds(100, 100, 900, 900);
     	contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -82,21 +84,10 @@ public class GameView {
 		
         frame.pack();
         frame.setVisible(true);
-        /*
-        panelBlue.setBackground(Color.BLUE);
-        panelBlue.setBounds(0, 0, 100, 100);
-        panelBlue.setOpaque(true);
-        panelGreen.setBackground(Color.GREEN);
-        panelGreen.setBounds(200, 100, 100, 100);
-        panelGreen.setOpaque(true);
-        lpane.add(panelBlue, 0, 0);
-        lpane.add(panelGreen, 0, 0);
-        frame.pack();
-        frame.setVisible(true);
-        */
     }
     
-    /* TODO make private helper method placePiece that takes as input a Piece and a board position and places it on the board GUI
+    /* Private helper that takes a Piece object, and places the corresponding image on the
+     * JLabel passed to the function.
      */
     private void placePiece(Piece piece_to_place, JLabel piece) {
     	String piece_type = piece_to_place.getPieceName();
@@ -111,7 +102,7 @@ public class GameView {
 		} catch (IOException e) {
 		    e.printStackTrace();
 		}
-		System.out.println(piece.getWidth());
+		//System.out.println(piece.getWidth());
 		Image dimg = img.getScaledInstance(piece.getWidth(),piece.getHeight(),
 		        Image.SCALE_SMOOTH);
 		ImageIcon imageIcon = new ImageIcon(dimg);

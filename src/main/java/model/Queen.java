@@ -9,7 +9,7 @@ public class Queen extends Piece{
 		super.setPieceName("Queen");
 	}
 	
-	public void getNewMoves() {
+	public void getNewMoves(int row, int column) {
 		
 	}
 }

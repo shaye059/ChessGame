@@ -9,7 +9,7 @@ public class King extends Piece{
 		super.setPieceName("King");
 	}
 	
-	public void getNewMoves() {
+	public void getNewMoves(int row, int column) {
 		
 	}
 }

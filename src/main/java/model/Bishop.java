@@ -7,7 +7,7 @@ public class Bishop extends Piece{
 		super.setPieceName("Bishop");
 	}
 	
-	public void getNewMoves() {
+	public void getNewMoves(int row, int column) {
 		
 	}
 }
