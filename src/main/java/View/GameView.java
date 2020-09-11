@@ -3,14 +3,22 @@ package View;
 import java.awt.BorderLayout;
 import model.Piece;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -22,18 +30,33 @@ import javax.swing.border.EmptyBorder;
 
 import model.Board;
 
-public class GameView {
+public class GameView implements MouseListener {
 	private JFrame frame = new JFrame();
     private JPanel panel = new JPanel();
     private JPanel panelGreen = new JPanel();
     private JPanel contentPane = new JPanel();
     private Board playing_board;
     private JPanel[][] list_of_labels;
-    
+    private JLayeredPane click1label = null;
+    private JLayeredPane selected_square = null;
+    //private List<JLayeredPane> selected_squares = new ArrayList<JLayeredPane>();
     
     // Initiates a view of the game board based on the model
     public GameView(Board playing_board) {
     	frame.setBounds(100, 100, 900, 900);
+    	frame.setMinimumSize(new Dimension(650,650));
+    	frame.addComponentListener(new ComponentAdapter() {
+    	      public void componentResized(ComponentEvent evt) {
+    	        Dimension size = frame.getSize();
+    	        Dimension min = frame.getMinimumSize();
+    	        if (size.getWidth() < min.getWidth()) {
+    	          frame.setSize((int) min.getWidth(), (int) size.getHeight());
+    	        }
+    	        if (size.getHeight() < min.getHeight()) {
+    	          frame.setSize((int) size.getWidth(), (int) min.getHeight());
+    	        }
+    	      }
+    	    });
     	contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
     	contentPane.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 5));
     	frame.setContentPane(contentPane);
@@ -72,6 +95,8 @@ public class GameView {
 			    	Piece occupying_piece = playing_board.getBoard()[row][column].getOccupyingPiece();
 			    	placePiece(occupying_piece, piece);
 			    }
+			    
+			    lpane.addMouseListener(this);
 			    
 			    
 			    lpane.add(square, 0, 0);
@@ -115,4 +140,45 @@ public class GameView {
     	Board playing_board = new Board();
         new GameView(playing_board);
     }
+    
+    public void mouseClicked(MouseEvent me) {
+    	//click1label = (JPanel) me.getSource();
+    	//click1label.setBackground(Color.RED);
+    }
+    
+    
+    // De-select the blue square isn't working. 
+    public void mousePressed(MouseEvent e) {
+    	click1label = (JLayeredPane) e.getSource();
+    	if (selected_square != click1label) {
+	    	JPanel highlight_square = new JPanel();
+	    	highlight_square.setSize(100, 100);
+	    	highlight_square.setBackground(new Color(0,0,255,75));
+	    	click1label.add(highlight_square);
+	    	int i = click1label.getIndexOf(highlight_square);
+	    	click1label.setPosition(highlight_square, 0);
+	    	System.out.println(click1label.getIndexOf(highlight_square));
+	    	if(selected_square != null) {
+	    		selected_square.remove(0);
+	    	}
+	    	selected_square = click1label;
+	    	frame.pack();
+	        frame.setVisible(true);
+	    	//square.setBackground(Color.RED);
+	    	//frame.pack()
+    	}
+     }
+
+     public void mouseReleased(MouseEvent e) {
+
+     }
+
+     public void mouseEntered(MouseEvent e) {
+
+     }
+
+     public void mouseExited(MouseEvent e) {
+
+     }
+
 }
