@@ -150,7 +150,6 @@ public class GameView implements MouseListener {
 	    	click1label.add(highlight_square);
 	    	int i = click1label.getIndexOf(highlight_square);
 	    	click1label.setPosition(highlight_square, 0);
-	    	System.out.println(click1label.getIndexOf(highlight_square));
 	    	if(selected_square != null) {
 	    		
 	    		selected_square.remove(0);
@@ -158,6 +157,11 @@ public class GameView implements MouseListener {
 	    	}
 	    	selected_square = click1label;
 	    	frame.repaint();
+    	}
+    	else {
+    		selected_square.remove(0);
+    		frame.repaint();
+    		selected_square = null;
     	}
      }
 
