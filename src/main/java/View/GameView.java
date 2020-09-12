@@ -39,7 +39,6 @@ public class GameView implements MouseListener {
     private JPanel[][] list_of_labels;
     private JLayeredPane click1label = null;
     private JLayeredPane selected_square = null;
-    //private List<JLayeredPane> selected_squares = new ArrayList<JLayeredPane>();
     
     // Initiates a view of the game board based on the model
     public GameView(Board playing_board) {
@@ -96,7 +95,7 @@ public class GameView implements MouseListener {
 			    	placePiece(occupying_piece, piece);
 			    }
 			    
-			    lpane.addMouseListener(this);
+			    lpane.addMouseListener(this); //listener for selecting a square
 			    
 			    
 			    lpane.add(square, 0, 0);
