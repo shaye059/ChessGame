@@ -3,6 +3,6 @@
 A chess game written in Java. GUI made with Swing.
 
 
-A preview of the GUI:
+A prewview of the GUI:
 
-<img src="/GUI.jpg" alt="GUI" width="500"/>
+<img src="GUI.JPG" alt="drawing" width="500"/>
