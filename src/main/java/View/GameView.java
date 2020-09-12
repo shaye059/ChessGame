@@ -136,14 +136,8 @@ public class GameView implements MouseListener {
     	
     }
     
-    public static void main(String[] args) {
-    	Board playing_board = new Board();
-        new GameView(playing_board);
-    }
-    
     public void mouseClicked(MouseEvent me) {
-    	//click1label = (JPanel) me.getSource();
-    	//click1label.setBackground(Color.RED);
+    	
     }
     
     
@@ -159,13 +153,12 @@ public class GameView implements MouseListener {
 	    	click1label.setPosition(highlight_square, 0);
 	    	System.out.println(click1label.getIndexOf(highlight_square));
 	    	if(selected_square != null) {
+	    		
 	    		selected_square.remove(0);
+	    		frame.repaint();
 	    	}
 	    	selected_square = click1label;
-	    	frame.pack();
-	        frame.setVisible(true);
-	    	//square.setBackground(Color.RED);
-	    	//frame.pack()
+	    	frame.repaint();
     	}
      }
 
@@ -179,6 +172,11 @@ public class GameView implements MouseListener {
 
      public void mouseExited(MouseEvent e) {
 
+     }
+     
+     public static void main(String[] args) {
+     	Board playing_board = new Board();
+         new GameView(playing_board);
      }
 
 }
